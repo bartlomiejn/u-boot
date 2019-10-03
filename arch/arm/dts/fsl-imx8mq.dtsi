@@ -228,11 +228,11 @@
 	lcdif: lcdif@30320000 {
 		compatible = "fsl,imx8mq-lcdif", "fsl,imx28-lcdif";
 		reg = <0x0 0x30320000 0x0 0x10000>;
-		clocks = <&clk IMX8MQ_CLK_LCDIF_PIXEL_DIV>,
+		clocks = <&clk IMX8MQ_CLK_LCDIF_PIXEL>,
 			 <&clk IMX8MQ_CLK_DUMMY>,
 			 <&clk IMX8MQ_CLK_DUMMY>;
 		clock-names = "pix", "axi", "disp_axi";
-		assigned-clocks = <&clk IMX8MQ_CLK_LCDIF_PIXEL_SRC>;
+		assigned-clocks = <&clk IMX8MQ_CLK_LCDIF_PIXEL>;
 		assigned-clock-parents = <&clk IMX8MQ_VIDEO_PLL1_OUT>;
 		assigned-clock-rate = <594000000>;
 		interrupts = <GIC_SPI 5 IRQ_TYPE_LEVEL_HIGH>;
@@ -283,10 +283,10 @@
 		reg = <0x0 0x30b40000 0x0 0x10000>;
 		interrupts = <GIC_SPI 22 IRQ_TYPE_LEVEL_HIGH>;
 		clocks = <&clk IMX8MQ_CLK_DUMMY>,
-			<&clk IMX8MQ_CLK_NAND_USDHC_BUS_DIV>,
+			<&clk IMX8MQ_CLK_NAND_USDHC_BUS>,
 			<&clk IMX8MQ_CLK_USDHC1_ROOT>;
 		clock-names = "ipg", "ahb", "per";
-		assigned-clocks = <&clk IMX8MQ_CLK_USDHC1_DIV>;
+		assigned-clocks = <&clk IMX8MQ_CLK_USDHC1>;
 		assigned-clock-rates = <400000000>;
 		fsl,tuning-start-tap = <20>;
 		fsl,tuning-step= <2>;
@@ -299,7 +299,7 @@
 		reg = <0x0 0x30b50000 0x0 0x10000>;
 		interrupts = <GIC_SPI 23 IRQ_TYPE_LEVEL_HIGH>;
 		clocks = <&clk IMX8MQ_CLK_DUMMY>,
-			<&clk IMX8MQ_CLK_NAND_USDHC_BUS_DIV>,
+			<&clk IMX8MQ_CLK_NAND_USDHC_BUS>,
 			<&clk IMX8MQ_CLK_USDHC2_ROOT>;
 		clock-names = "ipg", "ahb", "per";
 		fsl,tuning-start-tap = <20>;
@@ -316,19 +316,18 @@
 			<GIC_SPI 120 IRQ_TYPE_LEVEL_HIGH>;
 		clocks = <&clk IMX8MQ_CLK_ENET1_ROOT>,
 			<&clk IMX8MQ_CLK_ENET1_ROOT>,
-			<&clk IMX8MQ_CLK_ENET_TIMER_DIV>,
-			<&clk IMX8MQ_CLK_ENET_REF_DIV>,
-			<&clk IMX8MQ_CLK_ENET_PHY_REF_DIV>;
+			<&clk IMX8MQ_CLK_ENET_TIMER>,
+			<&clk IMX8MQ_CLK_ENET_REF>,
+			<&clk IMX8MQ_CLK_ENET_PHY_REF>;
 		clock-names = "ipg", "ahb", "ptp",
 			"enet_clk_ref", "enet_out";
-		assigned-clocks = <&clk IMX8MQ_CLK_ENET_AXI_SRC>,
-				  <&clk IMX8MQ_CLK_ENET_TIMER_SRC>,
-				  <&clk IMX8MQ_CLK_ENET_REF_SRC>,
-				  <&clk IMX8MQ_CLK_ENET_TIMER_DIV>;
+		assigned-clocks = <&clk IMX8MQ_CLK_ENET_AXI>,
+				  <&clk IMX8MQ_CLK_ENET_TIMER>,
+				  <&clk IMX8MQ_CLK_ENET_REF>;
 		assigned-clock-parents = <&clk IMX8MQ_SYS1_PLL_266M>,
 					 <&clk IMX8MQ_SYS2_PLL_100M>,
 					 <&clk IMX8MQ_SYS2_PLL_125M>;
-		assigned-clock-rates = <0>, <0>, <125000000>, <100000000>;
+		assigned-clock-rates = <0>, <100000000>, <125000000>;
 		stop-mode = <&gpr 0x10 3>;
 		fsl,num-tx-queues=<3>;
 		fsl,num-rx-queues=<3>;
