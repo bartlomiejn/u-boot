@@ -16,8 +16,14 @@ config TARGET_IMX8MQ_EVK
 	select IMX8M
 	select IMX8M_LPDDR4
 
+config TARGET_NITROGEN8M
+	bool "nitrogen8m"
+	select IMX8M
+	select IMX8M_LPDDR4
+
 endchoice
 
 source "board/freescale/imx8mq_evk/Kconfig"
+source "board/boundary/nitrogen8m/Kconfig"
 
 endif

@@ -1,0 +1,16 @@
+if TARGET_NITROGEN8M
+
+config SYS_BOARD
+	default "nitrogen8m"
+
+config SYS_VENDOR
+	default "boundary"
+
+config SYS_CONFIG_NAME
+	default "nitrogen8m"
+
+config DDR_RANK_BITS
+	int "ddr rank bits"
+	default 1
+
+endif
